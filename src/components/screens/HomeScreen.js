@@ -1,10 +1,8 @@
-import Logo from "/WIN/VsCode/Driven/Projetos/Modulo2/projeto10-trackit/src/assets/img/Logo.svg";
+import Logo from "../../assets/img/Logo.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-function HomeScreen () {
-
-
+function SignIn () {
     return (
         <HomeWrapper>
             <img src={Logo} alt="Logo"/>
@@ -13,8 +11,15 @@ function HomeScreen () {
                 <input type="text" name="password" placeholder="senha" />
                 <input type="submit" value="Entrar" />
             </form>
-            <Link className="cadastro" to="/cadastro">Não tem uma conta? Cadastre-se!</Link>
+            <Link className="sign-up" to="/cadastro">Não tem uma conta? Cadastre-se!</Link>
         </HomeWrapper>
+    )
+}
+
+function HomeScreen () {
+
+    return (
+        <SignIn />
     )
 }
 
@@ -68,7 +73,7 @@ const HomeWrapper = styled.div`
         cursor: pointer;
     }
 
-    .cadastro {
+    .sign-up {
         font-size: 14px;
         font-weight: 400;
         color: #52B6FF;
@@ -76,18 +81,4 @@ const HomeWrapper = styled.div`
         font-family: 'Lexend Deca', sans-serif;
     }
 `
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default HomeScreen

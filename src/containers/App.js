@@ -4,7 +4,7 @@ import Fonts from "../assets/fonts/Fonts";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeScreen from "../components/screens/HomeScreen";
-import SignUpScreen from "../components/screens/SignUpScreen";
+import RegisterScreen from "../components/screens/RegisterScreen";
 
     function App () {
         return (
@@ -14,7 +14,7 @@ import SignUpScreen from "../components/screens/SignUpScreen";
                 <Fonts/>
                 <Routes>
                     <Route path="/" element={<HomeScreen />}/>
-                    <Route path="/cadastro" element={<SignUpScreen />} />
+                    <Route path="/cadastro" element={<RegisterScreen />} />
                 </Routes>
             </BrowserRouter>
         )
