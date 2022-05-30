@@ -5,12 +5,6 @@ import axios from "axios";
 import { useState } from "react";
 import { ThreeDots } from  'react-loader-spinner';
 
-function Loading(){
-    return (
-        <ThreeDots height="80" width="80" color='white' ariaLabel='loading'/>
-    )
-}
-
 function Register() {
     const navigate = useNavigate();
     const [body, setBody] = useState({
@@ -28,12 +22,8 @@ function Register() {
         })
     }
 
-    function RegisterDanied () {
-
-    }
-
-    function SignUP(event) {
-        event.preventDefault();
+    function SignUP(e) {
+        e.preventDefault();
         setDisable(true)
 
         const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up", body);
@@ -42,7 +32,7 @@ function Register() {
             res => {console.log("Registrado com sucesso!")
                     navigate("/")}            
         ).catch(
-            err => {console.log(err.response.data.message)
+            err => {alert(err.response.data.message)
                     setDisable(false)}
         )
     }
@@ -52,10 +42,10 @@ function Register() {
             <img src={Logo} alt="Logo"/>
             <form onSubmit={SignUP}>
                 <input required disabled={disable} type="text" placeholder="email" name="email" value={body.email} onChange={coletarDados}/>
-                <input required disabled={disable} type="text" placeholder="senha" name="password" value={body.password} onChange={coletarDados}/>
+                <input required disabled={disable} type="password" placeholder="senha" name="password" value={body.password} onChange={coletarDados}/>
                 <input required disabled={disable} type="text" placeholder="nome" name="name" value={body.name} onChange={coletarDados}/>
                 <input required disabled={disable} type="text" placeholder="foto" name="image" value={body.image} onChange={coletarDados}/>
-                <button type="submit">{disable ? Loading() : "Cadastrar"}</button>
+                <button type="submit">{disable ? <ThreeDots height="80" width="80" color='white' ariaLabel='loading'/> : "Cadastrar"}</button>
             </form>
             <Link className="sign-in" to="/">Já tem uma conta? Faça login!</Link>
         </RegisterWrapper>
