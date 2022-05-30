@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Footer () {
     return (
         <Table>
-            <Link to="">Hábitos</Link>
-            <p>Hoje</p>
-            <Link to="">Histórico</Link>
+            <Link to="/habitos">Hábitos</Link>
+            <Link to="/hoje"><p>Hoje</p></Link>
+            <Link to="/historico">Histórico</Link>
         </Table>
     )
 }
@@ -25,6 +25,13 @@ const Table = styled.div`
     left: 0;
 
     background-color: #FFFFFF;
+
+    a {
+        text-decoration: none;
+        color: #52B6FF;
+
+        font-size: 18px;
+    }
 
     p {
         width: 90px;

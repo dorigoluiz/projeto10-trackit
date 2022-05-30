@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeScreen from "../components/screens/HomeScreen";
 import RegisterScreen from "../components/screens/RegisterScreen";
 import HabitScreen from "../components/screens/HabitScreen"
+import DayScreen from "../components/screens/DayScreen";
+import HistoryScreen from "../components/screens/HistoryScreen";
+
 import UserContext from "../contexts/UserContext"
 import TokenContext from "../contexts/TokenContext"
 import { useState } from "react";
@@ -29,7 +32,8 @@ import Header from "../components/tables/Header";
                         <Route path="/" element={<HomeScreen />}/>
                         <Route path="/cadastro" element={<RegisterScreen />} />
                         <Route path="/habitos" element={<HabitScreen />} />
-                        
+                        <Route path="/hoje" element={<DayScreen />} />
+                        <Route path="/historico" element={<HistoryScreen />} />
                     </Routes>
                 </BrowserRouter>
             </TokenContext.Provider>

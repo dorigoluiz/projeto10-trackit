@@ -1,14 +1,13 @@
 import styled from "styled-components"
 
-function CreateHabits() {
-
+function CreateHabits({ setClick }) {
     return (
         <Block>
             <form>
                 <input required type="text" placeholder="nome do hábito" name="habit"/>
                 <DayButtons><p>D</p><p>S</p><p>T</p><p>Q</p><p>Q</p><p>S</p><p>S</p></DayButtons>
                 <EndButtons>
-                    <button type="reset">Cancelar</button>
+                    <button type="reset" onClick={() => setClick(false)}>Cancelar</button>
                     <button type="submit">Salvar</button>
                 </EndButtons>
             </form>

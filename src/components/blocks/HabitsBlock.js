@@ -1,43 +1,22 @@
 import styled from "styled-components";
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import TokenContext from "../../contexts/TokenContext";
 import CreateHabits from "./CreateHabits";
 
-function Habits () {
-    const { token, setToken} = useContext(TokenContext)
-    const config = {
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
-    }
-    const promise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits", config)
-    promise.then(
-        res => {console.log(res);})
-    return(
-        <Table>
-            <CreateHabits />
-        </Table>
-    )
-}
-
 function HabitsBlock () {
+    const [click, setClick] = useState(false);
+
     return (
         <Block>
             <HabitWrapper>
                 <p>Meus hábitos</p>
-                <MoreButton onClick={CreateHabits}>+</MoreButton>
+                <MoreButton onClick={() => setClick(true)}>+</MoreButton>
             </HabitWrapper>
-            <Habits/>
-            <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
+            {click ? <CreateHabits setClick={setClick}/> : <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>}
         </Block>
     )
 }
-
-const Table = styled.div`
-    display: flex;
-    
-`
 
 const Block = styled.div`
     margin: 0 20px;
